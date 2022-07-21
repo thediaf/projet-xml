@@ -1,0 +1,20 @@
+<!ELEMENT film (titre, duree, genre, realisateur, acteurs, langue, description)>
+<!ATTLIST film annee_production NMTOKEN #REQUIRED>
+<!ELEMENT titre (#PCDATA)>
+<!ELEMENT duree (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT realisateur (nom, prenom)>
+<!ELEMENT acteurs (acteur)+>
+<!ELEMENT acteur (nom, prenom)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT langue (#PCDATA)>
+<!ELEMENT description (presse, spectateur, texte, horaire_projection*)>
+<!ELEMENT presse (#PCDATA)>
+<!ELEMENT spectateur (#PCDATA)>
+<!ELEMENT texte (#PCDATA)>
+<!ELEMENT horaire_projection EMPTY>
+<!ATTLIST horaire_projection 
+    jour (Lun|Mar|Mer|Jeu|Ven|Sam) #REQUIRED 
+    heure NMTOKEN #REQUIRED
+>
