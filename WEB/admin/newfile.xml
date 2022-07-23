@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+	<!DOCTYPE examen SYSTEM "examen.dtd">
+		<examen coursCode="M1GLSI">
+			<titre></titre>
+			<date mois="" annee="" />
+			<questions>
+				<question>
+					<partie>
+					
+					</partie>
+				</question>
+			</questions>
+		</examen>
