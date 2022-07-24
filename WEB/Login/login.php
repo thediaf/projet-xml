@@ -8,15 +8,15 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 require_once "config.php";
  
-$username = $password = "";
-$username_err = $password_err = "";
+$login = $password = "";
+$login_err = $password_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Veuillez entrer votre login.";
+    if(empty(trim($_POST["login"]))){
+        $login_err = "Veuillez entrer votre login.";
     } else{
-        $username = trim($_POST["username"]);
+        $login = trim($_POST["login"]);
     }
     
     // Check if password is empty
@@ -27,26 +27,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
+    if(empty($login_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, login, password FROM user WHERE login = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "s", $param_login);
             
             // Set parameters
-            $param_username = $username;
+            $param_login = $login;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
                 
-                // Check if username exists, if yes then verify password
+                // Check if login exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $login, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["login"] = $login;                            
                             
                             // Redirect user to welcome page
                             header("location: welcome.php");
@@ -65,8 +65,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = "Aucun compte trouvé avec ce nom d’utilisateur.";
+                    // Display an error message if login doesn't exist
+                    $login_err = "Aucun compte trouvé avec ce nom d’utilisateur.";
                 }
             } else{
                 echo "Oups! Quelque chose s’est mal passé. Veuillez réessayer plus tard.";
@@ -99,10 +99,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>S'identifier</h2>
         <p>Veuillez remplir vos identifiants pour vous connecter.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <div class="form-group <?php echo (!empty($login_err)) ? 'has-error' : ''; ?>">
                 <label>Nom utilisateur</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
+                <input type="text" name="login" class="form-control" value="<?php echo $login; ?>">
+                <span class="help-block"><?php echo $login_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Mot de passe</label>

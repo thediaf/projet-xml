@@ -38,7 +38,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                 <a class="nav-link" href="index.php"><i class="fa fa-fw fa-home"></i>Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../index.php">Programmes</a>
+                <a class="nav-link" href="Login/index.php">Cinema</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-fw fa-user"></i>Se connecter</a>
@@ -58,7 +58,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         <div id="carouselControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/xmlb1.jpeg" style="display:" class="w-100" alt="xml">
+              <img src="images/xmlb1.jpeg" style="" class="w-100" alt="xml">
             </div>
             <div class="carousel-item">
               <img src="images/digital-technology-background-illustration-51700896.jpeg" class="w-100" alt="xml">

@@ -1,3 +1,4 @@
+<!ELEMENT programme (film*)>
 <!ELEMENT film (titre, duree, genre, realisateur, acteurs, langue, description)>
 <!ATTLIST film annee_production NMTOKEN #REQUIRED>
 <!ELEMENT titre (#PCDATA)>
