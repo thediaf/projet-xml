@@ -50,4 +50,34 @@ class UserController
         }
     }
 
+    public function signup()
+    {
+        if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['password_retype']))
+        {
+            // Patch XSS
+            $login = htmlspecialchars($_POST['login']);
+            $password = htmlspecialchars($_POST['password']);
+            $password_retype = htmlspecialchars($_POST['password_retype']);
+            
+            if($password === $password_retype){ // si les deux mdp saisis sont bon
+
+                // On hash le mot de passe avec Bcrypt, via un coût de 12
+                $cost = ['cost' => 12];
+                $password = password_hash($password, PASSWORD_BCRYPT, $cost);
+                $response = $this->model->new($login, $password);
+                // On redirige avec le message de succès
+                if ($response) {
+                    $this->home();
+                }
+                else
+                    $this->signup();
+            }
+            
+        }          
+        else {
+            // $categories = $this->model->getCategories();
+            require('View/signup.php'); 
+        }
+    }
+
 }

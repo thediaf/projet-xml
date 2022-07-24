@@ -24,4 +24,14 @@ class UserModel extends Manager
         return $query->fetch();
 
     }
+
+    public function new($login, $password)
+    {
+        $request = $this->connexion->prepare('INSERT INTO user(login, password) VALUES(:login, :password)');
+        
+        return $request->execute(array(
+                    'login' => $login,
+                    'password' => $password
+                ));
+    }
 }
