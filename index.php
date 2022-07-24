@@ -21,7 +21,12 @@
             elseif ($_GET['action'] == "movie")
             {
                 
-                $fileController->create();
+                $fileController->movie();
+            }
+            elseif ($_GET['action'] == "examen")
+            {
+                
+                $fileController->examen();
             }
         }
         else{

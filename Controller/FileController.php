@@ -16,7 +16,7 @@ class FileController
         $this->model = new UserModel();   
     }
 
-    public function create()
+    public function movie()
     {
         session_start();
 
@@ -81,6 +81,70 @@ class FileController
         }
         else {
             require('View/movie.php');
+        }
+    }
+
+    public function examen()
+    {
+        session_start();
+
+        if ($_POST) {
+                    # code...
+            $xmlFile = new DOMDocument('1.0', 'utf-8');
+            $xmlFile->appendChild($examen = $xmlFile->createElement('examen'));
+
+            $examen->setAttribute('code', $_POST['code']);
+            $examen->appendChild(
+                $xmlFile->createElement('titre', $_POST['title'])
+            );
+            
+            $examen->appendChild(
+                $date = $xmlFile->createElement('date')
+            );
+            $date->setAttribute('jour', $_POST['day']);
+            $date->setAttribute('heure', $_POST['hour']);
+
+
+            $examen->appendChild($questions = $xmlFile->createElement('questions'));
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question1'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question2'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question3'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question4'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question5'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question6'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question7'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question8'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question9'])
+            );
+            $questions->appendChild(
+                $xmlFile->createElement('question', $_POST['question10'])
+            );
+
+            $xmlFile->formatOutput = true;
+            $xmlFile->save('examen.xml');
+
+
+            require('View/home.php');
+        }
+        else {
+            require('View/examen.php');
         }
     }
 }
