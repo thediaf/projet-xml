@@ -14,4 +14,14 @@ class UserModel extends Manager
         $this->connexion  = $this->dbConnect();
     }
 
+    public function getUser($login)
+    {
+
+        $sql = 'SELECT * FROM user WHERE login = ?';
+        $query =  $this->connexion->prepare($sql);
+        $query->execute(array($login));
+
+        return $query->fetch();
+
+    }
 }
