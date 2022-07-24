@@ -17,6 +17,7 @@ class UserController
 
     public function home()
     {
+        session_start();
         require('View/home.php'); 
     }
 
@@ -33,8 +34,6 @@ class UserController
             {
                 session_start();
                 $_SESSION["loggedIn"] = true;
-                $_SESSION["id"] = $response['id'];
-                $_SESSION["login"] = $response['login'];  
                 
                 require('View/home.php');
             }else {
@@ -67,6 +66,10 @@ class UserController
                 $response = $this->model->new($login, $password);
                 // On redirige avec le message de succès
                 if ($response) {
+                    session_start();
+                    $_SESSION["loggedIn"] = true;
+                    $_SESSION["id"] = $response['id'];
+                    $_SESSION["login"] = $response['login'];
                     $this->home();
                 }
                 else
