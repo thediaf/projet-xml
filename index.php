@@ -28,6 +28,11 @@
                 
                 $fileController->examen();
             }
+            elseif ($_GET['action'] == "restaurant")
+            {
+                
+                $fileController->restaurant();
+            }
         }
         else{
             $userController->home();

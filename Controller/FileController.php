@@ -147,4 +147,112 @@ class FileController
             require('View/examen.php');
         }
     }
+
+    public function restaurant()
+    {
+        session_start();
+
+        if ($_POST) {
+                    # code...
+            $xmlFile = new DOMDocument('1.0', 'utf-8');
+            $xmlFile->appendChild($portail = $xmlFile->createElement('portail'));
+            
+            $portail->appendChild($restaurants = $xmlFile->createElement('restaurants'));
+            $restaurants->appendChild($restaurant = $xmlFile->createElement('restaurant'));
+            $restaurant->appendChild($fiche = $xmlFile->createElement('fiche'));
+
+            $fiche->appendChild($coordonnees = $xmlFile->createElement('coordonnees'));
+            $coordonnees->appendChild(
+                $xmlFile->createElement('nom', $_POST['restname'])
+            );
+            $coordonnees->appendChild(
+                $xmlFile->createElement('adresse', $_POST['address'])
+            );
+            $coordonnees->appendChild(
+                $xmlFile->createElement('restaurateur', $_POST['director'])
+            );
+            $coordonnees->appendChild(
+                $description = $xmlFile->createElement('description')
+            );
+            $description->appendChild(
+                $xmlFile->createElement('liste', $_POST['list'])
+            );
+            $description->appendChild(
+                $xmlFile->createElement('important', $_POST['important'])
+            );
+            $description->appendChild(
+                $paragraphe = $xmlFile->createElement('paragraphe', $_POST['text'])
+            );
+            if ($_POST['image'] !== null) {
+                $paragraphe->appendChild(
+                    $image = $xmlFile->createElement('image', $_POST['image'])
+                );
+                $image->setAttribute('position', $_POST['imagePosition']);
+            }
+
+
+            $fiche->appendChild($carte = $xmlFile->createElement('carte'));
+            if ($_POST['service'] !== null) {
+                $carte->appendChild(
+                    $xmlFile->createElement('service', $_POST['service'])
+                );
+            }
+            else {
+                $carte->appendChild($menus = $xmlFile->createElement('menus'));
+                $menus->appendChild($menu1 = $xmlFile->createElement('menu'));
+                $menu1->appendChild(
+                    $xmlFile->createElement('nom', $_POST['menu1name'])
+                );
+                $menu1->setAttribute('prix', $_POST['menu1price']);
+                $menu1->setAttribute('devise', $_POST['menu1devise']);
+                $menu1->setAttribute('partie', $_POST['menu1part']);
+                $menu1->appendChild(
+                    $menu1description = $xmlFile->createElement('description_menu')
+                );
+                $menu1description->appendChild(
+                    $xmlFile->createElement('important', $_POST['menu1important'])
+                );
+                $menu1description->appendChild(
+                    $paragraphe = $xmlFile->createElement('paragraphe', $_POST['menu1desc'])
+                );
+                if ($_POST['menu1image'] !== null) {
+                    $paragraphe->appendChild(
+                        $menu1image = $xmlFile->createElement('image', $_POST['menu1image'])
+                    );
+                    $menu1image->setAttribute('position', $_POST['menu1imagePosition']);
+                }
+
+                $menus->appendChild($menu2 = $xmlFile->createElement('menu'));
+                $menu2->appendChild(
+                    $xmlFile->createElement('nom', $_POST['menu2name'])
+                );
+                $menu2->setAttribute('prix', $_POST['menu2price']);
+                $menu2->setAttribute('devise', $_POST['menu2pevise']);
+                $menu2->setAttribute('partie', $_POST['menu2part']);
+                $menu2->appendChild(
+                    $menu2description = $xmlFile->createElement('description_menu')
+                );
+                $menu2description->appendChild(
+                    $xmlFile->createElement('important', $_POST['menu2important'])
+                );
+                $menu2description->appendChild(
+                    $paragraphe = $xmlFile->createElement('paragraphe', $_POST['menu2desc'])
+                );
+                if ($_POST['menu2image'] !== null) {
+                    $paragraphe->appendChild(
+                        $menu2image = $xmlFile->createElement('image', $_POST['menu2image'])
+                    );
+                    $menu2image->setAttribute('position', $_POST['menu2imagePosition']);
+                }
+            }
+
+            $xmlFile->formatOutput = true;
+            $xmlFile->save('cinema.xml');
+
+            require('View/home.php');
+        }
+        else {
+            require('View/restaurant.php');
+        }
+    }
 }
