@@ -283,4 +283,19 @@ class FileController
             require('View/restaurant.php');
         }
     }
+
+    public function showExamen()
+    {
+        require('View/show_examen.php');
+    }
+
+    public function showMovie()
+    {
+        require('View/show_movie.php');
+    }
+
+    public function showRestau()
+    {
+        require('View/show_restau.php');
+    }
 }

@@ -11,15 +11,17 @@
     </realisateur>
     <acteurs>
       <acteur>
-        <nom>Cornuau</nom>
-        <prenom>Jérôme</prenom>
+        <nom>Cornillac</nom>
+        <prenom>C.</prenom>
       </acteur>
     </acteurs>
     <langue>VF (en Français)</langue>
     <description>
       <presse>4/5</presse>
       <spectateur>3</spectateur>
-      <texte>liste bhdhujdfjdhnkjijsiojsmks</texte>
+      <texte>Les aventures du commissaire Valentin et des inspecteurs Terrasson et Pujol,
+        membres des Brigades mobiles, corps spécial de la police française créé avant
+        la Première Guerre mondiale.</texte>
       <horaire_projection jour="Lun" heure="10:10"/>
     </description>
   </film>

@@ -33,6 +33,21 @@
                 
                 $fileController->restaurant();
             }
+            elseif ($_GET['action'] == "showExamen")
+            {
+                
+                $fileController->showExamen();
+            }
+            elseif ($_GET['action'] == "showMovie")
+            {
+                
+                $fileController->showMovie();
+            }
+            elseif ($_GET['action'] == "showRestau")
+            {
+                
+                $fileController->showRestau();
+            }
         }
         else{
             $userController->home();
