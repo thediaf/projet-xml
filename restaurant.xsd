@@ -1,0 +1,71 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="portail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="restaurants">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="restaurant">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="fiche">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="coordonnees">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="nom"/>
+                                <xs:element type="xs:string" name="adresse"/>
+                                <xs:element type="xs:string" name="restaurateur"/>
+                                <xs:element name="description">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="liste">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="element"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="paragraphe">
+                                        <xs:complexType mixed="true">
+                                          <xs:sequence>
+                                            <xs:element name="image">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="position"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element type="xs:string" name="important"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="carte">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="service"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

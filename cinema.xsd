@@ -1,0 +1,60 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="programme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="film">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="titre"/>
+              <xs:element type="xs:string" name="duree"/>
+              <xs:element type="xs:string" name="genre"/>
+              <xs:element name="realisateur">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="nom"/>
+                    <xs:element type="xs:string" name="prenom"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="acteurs">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="acteur">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="nom"/>
+                          <xs:element type="xs:string" name="prenom"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="langue"/>
+              <xs:element name="description">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="presse"/>
+                    <xs:element type="xs:byte" name="spectateur"/>
+                    <xs:element type="xs:string" name="texte"/>
+                    <xs:element name="horaire_projection">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="jour"/>
+                            <xs:attribute type="xs:string" name="heure"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:short" name="annee_production"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

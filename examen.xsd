@@ -1,0 +1,33 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="examen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="titre"/>
+        <xs:element name="date">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="mois"/>
+                <xs:attribute type="xs:short" name="annee"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="questions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="question" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="partie"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="code"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
