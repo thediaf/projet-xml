@@ -220,7 +220,7 @@ class FileController
 
 
             $fiche->appendChild($carte = $xmlFile->createElement('carte'));
-            if ($_POST['service'] !== null) {
+            if (isset($_POST['service'])) {
                 $carte->appendChild(
                     $xmlFile->createElement('service', $_POST['service'])
                 );
