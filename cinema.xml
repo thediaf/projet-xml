@@ -1,37 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE film SYSTEM "cinema.dtd">
-<film annee_production="2005">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE programme SYSTEM "cinema.dtd">
+<programme>
+  <film annee_production="2005">
     <titre>Les Brigades du Tigre</titre>
     <duree>2h 5min</duree>
     <genre>Policier</genre>
     <realisateur>
-        <nom>Cornuau</nom>
-        <prenom>Jérôme</prenom>
+      <nom>Cornuau</nom>
+      <prenom>Jérôme</prenom>
     </realisateur>
     <acteurs>
-        <acteur>
-            <nom>C.</nom>
-            <prenom>Cornillac</prenom>
-        </acteur>
-        <acteur>
-            <nom>D.</nom>
-            <prenom>Kruger</prenom>
-        </acteur>
-        <acteur>
-            <nom>E.</nom>
-            <prenom>Baer</prenom>
-        </acteur>
+      <acteur>
+        <nom>Cornuau</nom>
+        <prenom>Jérôme</prenom>
+      </acteur>
     </acteurs>
     <langue>VF (en Français)</langue>
     <description>
-        <presse>3/5</presse>
-        <spectateur>4/5</spectateur>
-        <texte>
-            Les aventures du commissaire Valentin et des inspecteurs Terrasson et Pujol,
-            membres des Brigades mobiles, corps spécial de la police française créé avant
-            la Première Guerre mondiale.
-        </texte>
-        <horaire_projection jour="Lun" heure="10:20" />
+      <presse>4/5</presse>
+      <spectateur>3</spectateur>
+      <texte>liste bhdhujdfjdhnkjijsiojsmks</texte>
+      <horaire_projection jour="Lun" heure="10:10"/>
     </description>
-
-</film>
+  </film>
+</programme>

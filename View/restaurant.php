@@ -1,7 +1,7 @@
 <?php ob_start() ?> 
 
 <div class="mx-auto my-6 p-4 max-w-3xl bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <form method="post" action="../index.php?action=movie">
+    <form method="post" action="../index.php?action=restaurant">
         <h5 class="text-xl m-2 font-medium text-gray-900 dark:text-white">Ajouter un restaurant</h5>
         
         <fieldset class="field">

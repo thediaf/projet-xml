@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Model\UserModel;
 use DOMDocument;
+use DOMImplementation;
 
 require_once('Model/UserModel.php');
 
@@ -21,8 +22,12 @@ class FileController
         session_start();
 
         if ($_POST) {
+
                     # code...
             $xmlFile = new DOMDocument('1.0', 'utf-8');
+            $imp = new DOMImplementation;
+
+            $xmlFile->appendChild($imp->createDocumentType('programme', '', 'cinema.dtd'));
             $xmlFile->appendChild($programme = $xmlFile->createElement('programme'));
             
             $programme->appendChild($film = $xmlFile->createElement('film'));
@@ -36,24 +41,25 @@ class FileController
             $film->appendChild(
                 $xmlFile->createElement('genre', $_POST['genre'])
             );
+            $film->setAttribute('annee_production', $_POST['year']);
             
             $film->appendChild($realisator = $xmlFile->createElement('realisateur'));
             $realisator->appendChild(
-                $xmlFile->createElement('prenom', $_POST['rfirstname'])
+                $xmlFile->createElement('nom', $_POST['rlastname'])
             );
             $realisator->appendChild(
-                $xmlFile->createElement('nom', $_POST['rlastname'])
+                $xmlFile->createElement('prenom', $_POST['rfirstname'])
             );
 
             $film->appendChild($actors = $xmlFile->createElement('acteurs'));
             $actors->appendChild($actor = $xmlFile->createElement('acteur'));
             $actor->appendChild(
-                $xmlFile->createElement('prenom', $_POST['rfirstname'])
-            );
-            $actor->appendChild(
                 $xmlFile->createElement('nom', $_POST['rlastname'])
             );
-
+            $actor->appendChild(
+                $xmlFile->createElement('prenom', $_POST['rfirstname'])
+            );
+            
             $film->appendChild(
                 $xmlFile->createElement('langue', $_POST['language'])
             );
@@ -76,6 +82,11 @@ class FileController
 
             $xmlFile->formatOutput = true;
             $xmlFile->save('cinema.xml');
+            $documentValid = $xmlFile->validate();
+            if ($documentValid) {
+                # code...
+                var_dump($xmlFile);
+            }
 
             require('View/home.php');
         }
@@ -91,6 +102,9 @@ class FileController
         if ($_POST) {
                     # code...
             $xmlFile = new DOMDocument('1.0', 'utf-8');
+            $imp = new DOMImplementation;
+
+            $xmlFile->appendChild($imp->createDocumentType('examen', '', 'examen.dtd'));
             $xmlFile->appendChild($examen = $xmlFile->createElement('examen'));
 
             $examen->setAttribute('code', $_POST['code']);
@@ -101,40 +115,50 @@ class FileController
             $examen->appendChild(
                 $date = $xmlFile->createElement('date')
             );
-            $date->setAttribute('jour', $_POST['day']);
-            $date->setAttribute('heure', $_POST['hour']);
+            $date->setAttribute('mois', $_POST['mois']);
+            $date->setAttribute('annee', $_POST['annee']);
 
 
             $examen->appendChild($questions = $xmlFile->createElement('questions'));
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question1'])
+            $questions->appendChild($question1 = $xmlFile->createElement('question'));
+            $question1->appendChild(
+                $xmlFile->createElement('partie', $_POST['question1'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question2'])
+            $questions->appendChild($question2 = $xmlFile->createElement('question'));
+            $question2->appendChild(
+                $xmlFile->createElement('partie', $_POST['question2'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question3'])
+            $questions->appendChild($question3 = $xmlFile->createElement('question'));
+            $question3->appendChild(
+                $xmlFile->createElement('partie', $_POST['question3'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question4'])
+            $questions->appendChild($question4 = $xmlFile->createElement('question'));
+            $question4->appendChild(
+                $xmlFile->createElement('partie', $_POST['question4'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question5'])
+            $questions->appendChild($question5 = $xmlFile->createElement('question'));
+            $question5->appendChild(
+                $xmlFile->createElement('partie', $_POST['question5'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question6'])
+            $questions->appendChild($question6 = $xmlFile->createElement('question'));
+            $question6->appendChild(
+                $xmlFile->createElement('partie', $_POST['question6'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question7'])
+            $questions->appendChild($question7 = $xmlFile->createElement('question'));
+            $question7->appendChild(
+                $xmlFile->createElement('partie', $_POST['question7'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question8'])
+            $questions->appendChild($question8 = $xmlFile->createElement('question'));
+            $question8->appendChild(
+                $xmlFile->createElement('partie', $_POST['question8'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question9'])
+            $questions->appendChild($question9 = $xmlFile->createElement('question'));
+            $question9->appendChild(
+                $xmlFile->createElement('partie', $_POST['question9'])
             );
-            $questions->appendChild(
-                $xmlFile->createElement('question', $_POST['question10'])
+            $questions->appendChild($question10 = $xmlFile->createElement('question'));
+            $question10->appendChild(
+                $xmlFile->createElement('partie', $_POST['question10'])
             );
 
             $xmlFile->formatOutput = true;
@@ -154,7 +178,11 @@ class FileController
 
         if ($_POST) {
                     # code...
-            $xmlFile = new DOMDocument('1.0', 'utf-8');
+            $xmlFile = new DOMDocument('1.0', 'utf-8');            
+            $imp = new DOMImplementation;
+
+            $xmlFile->appendChild($imp->createDocumentType('portail', '', 'restaurant.dtd'));
+
             $xmlFile->appendChild($portail = $xmlFile->createElement('portail'));
             
             $portail->appendChild($restaurants = $xmlFile->createElement('restaurants'));
@@ -247,7 +275,7 @@ class FileController
             }
 
             $xmlFile->formatOutput = true;
-            $xmlFile->save('cinema.xml');
+            $xmlFile->save('restaurant.xml');
 
             require('View/home.php');
         }

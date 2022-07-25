@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE portail SYSTEM "restaurant.dtd">
+<portail>
+  <restaurants>
+    <restaurant>
+      <fiche>
+        <coordonnees>
+          <nom>Mon resto</nom>
+          <adresse>Fann</adresse>
+          <restaurateur>Amadou</restaurateur>
+          <description>
+            <liste>
+              <element>liste</element>
+            </liste>
+            <paragraphe>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard  <image position="gauche">url</image></paragraphe>
+            <important>i=important</important>
+          </description>
+        </coordonnees>
+        <carte>
+          <service>  </service>
+        </carte>
+      </fiche>
+    </restaurant>
+  </restaurants>
+</portail>

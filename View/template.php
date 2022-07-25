@@ -52,7 +52,7 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Accueil</a>
 
-            <?php if ($_SESSION['loggedIn']) { ?>
+            <?php if (isset($_SESSION['loggedIn'])) { ?>
                 <a href="../index.php?action=movie" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ajouter un film</a>
                 <a href="../index.php?action=examen" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ajouter un examen</a>
                 <a href="../index.php?action=restaurant" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ajouter un restaurant</a>
@@ -67,7 +67,7 @@
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         
-        <?php if ($_SESSION['loggedIn']) { ?>
+        <?php if (isset($_SESSION['loggedIn'])) { ?>
         <!-- Profile dropdown -->
             <div class="ml-3 relative">
             <div>
@@ -99,7 +99,7 @@
 
     <section>
         <div class="container">
-            <div  class="row text-center">
+            <div  class="row">
                 <?= $content ?>
             </div>
         </div>

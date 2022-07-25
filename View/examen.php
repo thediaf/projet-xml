@@ -27,25 +27,25 @@
             <div class="my-3 grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 mb-6 w-full group">
                     <label for="day" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                        Jour
+                        Mois
                     </label>
-                    <select id="day" name="day"
+                    <select id="day" name="mois"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 
                             border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 
                             focus:border-blue-600 peer"
                     >
-                        <option value="Lun">Lundi</option>
-                        <option value="Mar">Mardi</option>
-                        <option value="Mer">Mercredi</option>
-                        <option value="Jeu">Jeudi</option>
-                        <option value="Ven">Vendredi</option>
-                        <option value="Sam">Samedi</option>
-                        <option value="Dim">Dimanche</option>
+                        <option value="jan">Janvier</option>
+                        <option value="fev">Fevrier</option>
+                        <option value="mar">Mars</option>
+                        <option value="avr">Avril</option>
+                        <option value="mai">Mai</option>
+                        <option value="jun">Juin</option>
+                        <option value="jui">Juillet</option>
                     </select>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <label for="hour">Heure</label><br>
-                    <input type="time" id="hour" name="hour">
+                    <label for="annee">Annee</label><br>
+                    <input type="texte" id="annee" name="annee">
                 </div>
             </div>
         </fieldset>

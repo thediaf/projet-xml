@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE examen SYSTEM "examen.dtd">
+<examen code="bs01">
+  <titre>examen 1</titre>
+  <date mois="jun" annee="2022"/>
+  <questions>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+    <question>
+      <partie>question 1</partie>
+    </question>
+  </questions>
+</examen>
